@@ -1,7 +1,6 @@
-import React from 'react'
 
 export default function Welcome() {
   return (
-    <div>Welcome</div>
+    <div className='bg-black text-white'>Welcome</div>
   )
 }
