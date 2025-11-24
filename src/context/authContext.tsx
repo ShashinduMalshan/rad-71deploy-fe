@@ -5,6 +5,7 @@ const AuthContext = createContext<any>(null)
 
 export const AuthProvider = ({ children }: any) => {
   const [user, setUser] = useState<any>(null)
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     const token = localStorage.getItem("accessToken")
@@ -17,12 +18,17 @@ export const AuthProvider = ({ children }: any) => {
           // if token expire or me api call fail
           setUser(null)
           console.error(err)
+        }).finally(() => {
+          setLoading(false)
         })
+    }else {
+      setLoading(false)
+      setUser(null)
     }
   }, [])
 
   return (
-    <AuthContext.Provider value={{ user, setUser }}>
+    <AuthContext.Provider value={{ user, setUser , loading}}>
       {children}
     </AuthContext.Provider>
   )

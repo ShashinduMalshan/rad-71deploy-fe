@@ -13,10 +13,13 @@ export default function Login() {
   const handleLogin = async (e: FormEvent) => {
     e.preventDefault()
 
+        console.log("object");
+
     if (!email || !password) {
       alert("ALl fields are re...")
       return
     }
+
 
     try {
       const res = await login(email, password)
@@ -27,6 +30,8 @@ export default function Login() {
         return
       }
       await localStorage.setItem("accessToken", res.data.accessToken)
+      await localStorage.setItem("refreshToken", res.data.refreshToken)
+
 
       // import { getMyDetails, login } from "../services/auth"
       const detail = await getMyDetails()
