@@ -1,7 +1,20 @@
+import { useNavigate } from "react-router-dom";
+
 export default function Welcome() {
+  const navigate = useNavigate();
+
+  const goToLogin = () => {
+    navigate("/login");
+  };
+
+  const goToRegister = () => {
+    navigate("/register");
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-900 via-blue-900 to-black flex items-center justify-center p-4">
       <div className="text-center space-y-8 max-w-2xl">
+
         {/* Logo/Icon */}
         <div className="flex justify-center">
           <div className="w-20 h-20 bg-gradient-to-br from-purple-400 to-blue-500 rounded-full flex items-center justify-center shadow-2xl">
@@ -23,15 +36,24 @@ export default function Welcome() {
 
         {/* Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
-          <button className="w-full sm:w-auto px-10 py-4 bg-gradient-to-r from-purple-500 to-blue-500 text-white font-semibold rounded-full hover:from-purple-600 hover:to-blue-600 transform hover:scale-105 transition-all duration-200 shadow-lg hover:shadow-2xl">
+          
+          {/* Login Button */}
+          <button
+            onClick={goToLogin}
+            className="w-full sm:w-auto px-10 py-4 bg-gradient-to-r from-purple-500 to-blue-500 text-white font-semibold rounded-full hover:from-purple-600 hover:to-blue-600 transform hover:scale-105 transition-all duration-200 shadow-lg hover:shadow-2xl"
+          >
             Login
           </button>
-          <button className="w-full sm:w-auto px-10 py-4 bg-white/10 backdrop-blur-sm text-white font-semibold rounded-full hover:bg-white/20 border border-white/20 transform hover:scale-105 transition-all duration-200">
+
+          {/* Register Button */}
+          <button
+            onClick={goToRegister}
+            className="w-full sm:w-auto px-10 py-4 bg-white/10 backdrop-blur-sm text-white font-semibold rounded-full hover:bg-white/20 border border-white/20 transform hover:scale-105 transition-all duration-200"
+          >
             Register
           </button>
         </div>
 
-        {/* Decorative elements */}
         <div className="pt-8 text-gray-400 text-sm">
           Join thousands of users already on board
         </div>
