@@ -4,7 +4,8 @@
 import axios, { AxiosError } from "axios"
 import { refreshTokens } from "./auth"
 
-const api = axios.create({baseURL:"https://rad-71deploy-be.vercel.app/api/v1"
+const api = axios.create({baseURL:"https://venerable-croquembouche-11613c.netlify.app/"
+  // "https://rad-71deploy-be.vercel.app/api/v1"
   // baseURL: "http://localhost:5000/api/v1"
 })
 
