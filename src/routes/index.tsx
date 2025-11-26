@@ -3,6 +3,7 @@ import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom"
 import { useAuth } from "../context/authContext"
 import Layout from "../Components/Layout"
 import MyPost from "../pages/MyPost"
+import AmazingLoader from "../Components/loding"
 
 const Home = lazy(() => import("../pages/Home"))
 const Login = lazy(() => import("../pages/Login"))
@@ -34,7 +35,7 @@ const RequiredAuth = ({ children, roles }: RequiredAuthType) => {
 export default function Router() {
   return (
     <BrowserRouter>
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense fallback={<AmazingLoader />}>
         <Routes>
           <Route path="/" element={<Welcome />} />
           <Route path="/login" element={<Login />} />

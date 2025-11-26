@@ -4,7 +4,8 @@
 import axios, { AxiosError } from "axios"
 import { refreshTokens } from "./auth"
 
-const api = axios.create({baseURL:"https://rad-71deploy-be.vercel.app/"
+const api = axios.create({
+  baseURL:"https://rad-71deploy-be.vercel.app/"
   // baseURL: "http://localhost:5000/api/v1"
 })
 
@@ -35,6 +36,7 @@ api.interceptors.response.use(
 
     if (err.response?.status === 401 && !isPublic && !originalRequest._retry) {
       originalRequest._retry = true
+
       try {
         const refreshToken = localStorage.getItem("refreshToken")
 
